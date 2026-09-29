@@ -11,16 +11,15 @@ public class QuestaoUmApplicationService implements IApplication {
     public void comecarAplicacao() {
 
         Scanner scanner = new Scanner(System.in);
-
         OperationsService os = new OperationsService(scanner);
-
+        
         boolean sair = false;
 
         while (sair == false) {
             System.out.println("\n\n Digite a operacao: ");
             System.out.println("1 - Adicionar novo produto de alimento");
             System.out.println("2 - Adicionar novo produto de limpeza");
-            System.out.println("3 - Mostrar todas as informações de um produto que está em estoque");
+            System.out.println("3 - Mostrar todas as informacoes de um produto que esta em estoque");
             System.out.println("4 - Dar baixa em um produto");
             System.out.println("5 - Repor um produto ");
             System.out.println("6 - Mostrar todos os produtos em estoque");

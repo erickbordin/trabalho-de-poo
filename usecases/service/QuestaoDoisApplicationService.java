@@ -11,7 +11,7 @@ public class QuestaoDoisApplicationService implements IApplication {
 
         Scanner scanner = new Scanner(System.in);
 
-        ImovelOperationsService imovelOperations = new ImovelOperationsService(scanner);
+        ImovelOperationsService ios = new ImovelOperationsService(scanner);
 
         boolean sair = false;
 
@@ -36,25 +36,25 @@ public class QuestaoDoisApplicationService implements IApplication {
                     sair = true;
                     break;
                 case "1":
-                    imovelOperations.adicionarImovelNovo();
+                    ios.adicionarImovelNovo();
                     break;
                 case "2":
-                    imovelOperations.adicionarImovelUsado();
+                    ios.adicionarImovelUsado();
                     break;
                 case "3":
-                    imovelOperations.modificarAdicional();
+                    ios.modificarAdicional();
                     break;
                 case "4":
-                    imovelOperations.modificarDesconto();
+                    ios.modificarDesconto();
                     break;
                 case "5":
-                    imovelOperations.mostrarValorVenda();
+                    ios.mostrarValorVenda();
                     break;
                 case "6":
-                    imovelOperations.mostrarImovel();
+                    ios.mostrarImovel();
                     break;
                 case "7":
-                    imovelOperations.mostrarTodosImoveis();
+                    ios.mostrarTodosImoveis();
                     break;
                 default:
                     System.out.println("Opcao indisponivel!");
