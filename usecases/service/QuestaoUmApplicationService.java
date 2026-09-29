@@ -10,11 +10,11 @@ public class QuestaoUmApplicationService implements IApplication {
     @Override
     public void comecarAplicacao() {
 
-        OperationsService os = new OperationsService();
-        
-        boolean sair = false;
-
         Scanner scanner = new Scanner(System.in);
+
+        OperationsService os = new OperationsService(scanner);
+
+        boolean sair = false;
 
         while (sair == false) {
             System.out.println("\n\n Digite a operacao: ");
@@ -27,31 +27,38 @@ public class QuestaoUmApplicationService implements IApplication {
             System.out.println("7 - Mostrar valor total de um produto ");
             System.out.println("0 - Sair");
 
-            switch(scanner.nextInt()){
-                case 0:
+            if (!scanner.hasNextLine()) {
+                break;
+            }
+
+            switch(scanner.nextLine().trim()){
+                case "0":
                     System.out.println("Stopping this application...");
                     sair = true;
                     break;
-                case 1:
+                case "1":
                     os.createProdutoAlimento();
                     break;
-                case 2:
+                case "2":
                     os.createProdutoLimpeza();
                     break;
-                case 3:
+                case "3":
                     os.findProduto();
                     break;
-                case 4:
+                case "4":
                     os.darBaixaProduto();
                     break;
-                case 5:
+                case "5":
                     os.reporProdutoById();
                     break;
-                case 6:
+                case "6":
                     os.mostrarTodosProdutos();
                     break;
-                case 7:
+                case "7":
                     os.valorTotalProduto();
+                    break;
+                default:
+                    System.out.println("Opcao indisponivel!");
                     break;
             }
 

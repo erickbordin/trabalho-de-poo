@@ -22,11 +22,8 @@ public class ProdutoLimpezaModel extends ProdutoModel {
 
     @Override
     public String toString() {
-        return "id: " + super.getId() +
-                "\ndescricacao: " + super.getDescricao() +
-                "\nquantidade: " + super.getQuantidade() +
-                "\nvalor: " + super.getValor() +
-                "marca: " + marca;
+        return super.toString() +
+                "\nmarca: " + marca;
     }
 
 }

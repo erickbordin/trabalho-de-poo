@@ -1,6 +1,8 @@
 package domain.model;
 
-public class ProdutoModel {
+import usecases.interfaces.IProduto;
+
+public class ProdutoModel implements IProduto {
 
     private String id;
     private String descricao;
@@ -15,6 +17,24 @@ public class ProdutoModel {
     }
 
     public ProdutoModel(){}
+
+    @Override
+    public void darBaixa(int numero) {
+        if (quantidade < numero) {
+            throw new IllegalArgumentException("Quantidade insuficiente em estoque. Disponivel: " + quantidade);
+        }
+        quantidade -= numero;
+    }
+
+    @Override
+    public void repor(int numero) {
+        quantidade += numero;
+    }
+
+    @Override
+    public double valorTotal() {
+        return quantidade * valor;
+    }
 
     public String getId() {
         return id;
@@ -51,9 +71,9 @@ public class ProdutoModel {
     @Override
     public String toString() {
         return "id: " + getId() +
-            "\ndescricacao: " + getDescricao() +
+            "\ndescricao: " + getDescricao() +
             "\nquantidade: " + getQuantidade() +
             "\nvalor: " + getValor();
     }
-    
+
 }
